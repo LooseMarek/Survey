@@ -20,6 +20,7 @@ After pressing positive button, Survey module will open link to the survey with 
 - [Usage](#usage)
 - [Show alert rules](#show-alert-rules)
 - [Additional settings](#additional-settings)
+- [Testing](#testing)
 - [Author](#author)
 
 ## Installation
@@ -228,6 +229,29 @@ The mock classes are located in `Mocks` directory and include:
 - `MockSurveyDelegate: SurveyDelegate`
 - `MockSurveyHelper: SurveyHelperProtocol`
 - `MockViewController: UIViewController`
+
+## Testing
+
+Module is run with GitHub Actions everytime the new commit is pushed to the remote branch `master`. The testing includes:
+
+- building the project
+- running unit tests
+
+You can also do that locally by running below commands in terminal:
+
+Build:
+
+```
+xcodebuild -scheme 'Survey' -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' build
+```
+
+Test:
+
+```
+xcodebuild -scheme 'Survey' -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' test
+```
+
+Note: The commands above are running with iPhone 11 but you can use any iOS devices you like.
 
 ## Author
 
