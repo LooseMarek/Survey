@@ -16,17 +16,11 @@ After pressing positive button, Survey module will open link to the survey with 
 
 ## Content
 
-- [Version](#version)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Show alert rules](#show-alert-rules)
 - [Additional settings](#additional-settings)
-- [License](#license)
 - [Author](#author)
-
-## Version
-
-1.0.0
 
 ## Installation
 
@@ -233,10 +227,6 @@ The mock classes are located in `Mocks` directory and include:
 - `MockSurveyDelegate: SurveyDelegate`
 - `MockSurveyHelper: SurveyHelperProtocol`
 - `MockViewController: UIViewController`
-
-## License
-
-**Survey** is available under the MIT license.
 
 ## Author
 
