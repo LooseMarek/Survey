@@ -218,18 +218,6 @@ extension YourViewController: SurveyDelegate {
 }
 ```
 
-### Mocks
-
-Survey module provides set of simple mocks to help you test your app. 
-
-The mock classes are located in `Mocks` directory and include:
-
-- `MockAlertController: UIAlertController`
-- `MockSurvey: SurveyProtocol`
-- `MockSurveyDelegate: SurveyDelegate`
-- `MockSurveyHelper: SurveyHelperProtocol`
-- `MockViewController: UIViewController`
-
 ## Testing
 
 Module is run with GitHub Actions everytime the new commit is pushed to the remote branch `master`. The testing includes:
@@ -252,6 +240,18 @@ xcodebuild -scheme 'Survey' -sdk iphonesimulator -destination 'platform=iOS Simu
 ```
 
 Note: The commands above are running with iPhone 11 but you can use any iOS devices you like.
+
+### Mocks
+
+Survey module provides set of simple mocks to help you test your app. 
+
+The mock classes are located in `Mocks` directory and include:
+
+- `MockAlertController: UIAlertController`
+- `MockSurvey: SurveyProtocol`
+- `MockSurveyDelegate: SurveyDelegate`
+- `MockSurveyHelper: SurveyHelperProtocol`
+- `MockViewController: UIViewController`
 
 ## Author
 
