@@ -26,10 +26,11 @@ After pressing positive button, Survey module will open link to the survey with 
 
 ### Swift Package Manager
 
-1. In Xcode go to File -> Swift Packages -> Add Package Dependency...
-2. Select main module
-3. Search for URL `https://github.com/LooseMarek/Survey`
-4. Select -> Rules -> Version -> Up to Next Major 1.0.0 < 2.0.0
+1. In Xcode go to File -> Add Package...
+2. In Search or Enter Package URL paste `https://github.com/LooseMarek/Survey`
+3. Dependency Rule -> Version Up to Next Major -> 1.0.0 < 2.0.0
+4. Add Package
+5. On the pop up screen -> Add Package
 
 ## Usage
 
