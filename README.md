@@ -1,5 +1,9 @@
 # Survey
 
+![version tag](https://img.shields.io/github/v/tag/LooseMarek/Survey) ![language](https://img.shields.io/github/languages/top/LooseMarek/Survey) ![license](https://img.shields.io/github/license/LooseMarek/Survey)
+
+![build and test workflow](https://github.com/LooseMarek/Survey/actions/workflows/build_and_test.yml/badge.svg) ![issues](https://img.shields.io/github/issues/LooseMarek/Survey)
+
 Swift package module used for asking User to fill the Survey. 
 
 It will display an alert with three options: "OK", "Maybe later", "Don't ask again". Based on User input and time passed from the last input, it will check whether to display the alert again.
