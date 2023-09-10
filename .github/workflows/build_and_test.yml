@@ -6,7 +6,7 @@ on:
 
 env:
   SCHEME: Survey
-  TEST_DEVICE: platform=iOS Simulator,name=iPhone 11,OS=15.0
+  TEST_DEVICE: platform=iOS Simulator,name=iPhone 15,OS=17.2
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Checkout project repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Build
       shell: bash
@@ -27,7 +27,11 @@ jobs:
 
     steps:
     - name: Checkout project repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
+    - name: Test
+      shell: bash
+      run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' test
 
     - name: Test
       shell: bash
