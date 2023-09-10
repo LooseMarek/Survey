@@ -4,6 +4,8 @@
 
 ![build and test workflow](https://github.com/LooseMarek/Survey/actions/workflows/build_and_test.yml/badge.svg) ![issues](https://img.shields.io/github/issues/LooseMarek/Survey)
 
+<a href="https://www.buymeacoffee.com/loosemarek" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 Swift package module used for asking User to fill the Survey. 
 
 It will display an alert with three options: "OK", "Maybe later", "Don't ask again". Based on User input and time passed from the last input, it will check whether to display the alert again.
