@@ -2,11 +2,11 @@ name: Build and Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
-  SCHEME: Survey
-  TEST_DEVICE: platform=iOS Simulator,name=iPhone 11,OS=15.0
+  SCHEME: MyFirstSwiftPackage
+  TEST_DEVICE: platform=iOS Simulator,name=iPhone 14,OS=16.2
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Checkout project repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Build
       shell: bash
@@ -27,7 +27,11 @@ jobs:
 
     steps:
     - name: Checkout project repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
+    - name: Test
+      shell: bash
+      run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' test
 
     - name: Test
       shell: bash
