@@ -17,7 +17,7 @@ extension Helper_Survey_Test {
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
         
         // Then
         XCTAssertTrue(result)
@@ -31,7 +31,7 @@ extension Helper_Survey_Test {
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
         
         // Then
         XCTAssertFalse(result)
@@ -39,8 +39,8 @@ extension Helper_Survey_Test {
     
     func testCanDisplayAlert_WhenNeutralButtonPressHaveBeenLoggedButNotEnoughTimePassedFromLastLog_ShouldReturnFalse() {
         // Given
-        let calendar: Calendar = Calendar.current
-        let logTimestamp: Date = calendar.date(byAdding: .day, value: -1, to: mockDateNow)!
+        let calendar = Calendar.current
+        let logTimestamp = calendar.date(byAdding: .day, value: -1, to: mockDateNow)!
         
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
@@ -48,7 +48,7 @@ extension Helper_Survey_Test {
         fakeUserDefaults.set(LogButtonType.neutral.rawValue, forKey: LogKey.buttonType.rawValue)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
 
         // Then
         XCTAssertFalse(result)
@@ -56,8 +56,8 @@ extension Helper_Survey_Test {
     
     func testCanDisplayAlert_WhenNeutralButtonPressHaveBeenLoggedAndEnoughTimePassedFromLastLog_ShouldReturnTrue() {
         // Given
-        let calendar: Calendar = Calendar.current
-        let logTimestamp: Date = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
+        let calendar = Calendar.current
+        let logTimestamp = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
         
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
@@ -65,7 +65,7 @@ extension Helper_Survey_Test {
         fakeUserDefaults.set(LogButtonType.neutral.rawValue, forKey: LogKey.buttonType.rawValue)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
 
         // Then
         XCTAssertTrue(result)
@@ -73,8 +73,8 @@ extension Helper_Survey_Test {
     
     func testCanDisplayAlert_WhenPositiveButtonPressHaveBeenLoggedButNotEnoughTimePassedFromLastLog_ShouldReturnFalse() {
         // Given
-        let calendar: Calendar = Calendar.current
-        let logTimestamp: Date = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
+        let calendar = Calendar.current
+        let logTimestamp = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
         
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
@@ -82,7 +82,7 @@ extension Helper_Survey_Test {
         fakeUserDefaults.set(LogButtonType.positive.rawValue, forKey: LogKey.buttonType.rawValue)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
 
         // Then
         XCTAssertFalse(result)
@@ -90,8 +90,8 @@ extension Helper_Survey_Test {
     
     func testCanDisplayAlert_WhenPositiveButtonPressHaveBeenLoggedAndEnoughTimePassedFromLastLog_ShouldReturnTrue() {
         // Given
-        let calendar: Calendar = Calendar.current
-        let logTimestamp: Date = calendar.date(byAdding: .day, value: -45, to: mockDateNow)!
+        let calendar = Calendar.current
+        let logTimestamp = calendar.date(byAdding: .day, value: -45, to: mockDateNow)!
         
         let displayFrequency = DisplayFrequencyInDays(fromFilled: 30, fromAskLater: 10)
 
@@ -99,7 +99,7 @@ extension Helper_Survey_Test {
         fakeUserDefaults.set(LogButtonType.positive.rawValue, forKey: LogKey.buttonType.rawValue)
 
         // When
-        let result: Bool = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
+        let result = surveyHelper.canDisplayAlert(userDefaults: fakeUserDefaults, displayFrequencyInDays: displayFrequency, dateNow: mockDateNow)
 
         // Then
         XCTAssertTrue(result)

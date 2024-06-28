@@ -10,11 +10,11 @@ import UIKit
 
 class MockSurveyHelper: SurveyHelperProtocol {
     
-    var canDisplayAlertCallsCount: Int = 0
-    var didEnoughTimePassFromLastDisplayCallsCount: Int = 0
+    var canDisplayAlertCallsCount = 0
+    var didEnoughTimePassFromLastDisplayCallsCount = 0
     
-    var mockCanDisplayAlert: Bool = false
-    var mockDidEnoughTimePassFromLastDisplay: Bool = false
+    var mockCanDisplayAlert = false
+    var mockDidEnoughTimePassFromLastDisplay = false
     
     func canDisplayAlert(userDefaults: UserDefaults, displayFrequencyInDays: DisplayFrequencyInDays, dateNow: Date = Date()) -> Bool {
         canDisplayAlertCallsCount += 1

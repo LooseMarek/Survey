@@ -10,10 +10,10 @@ import UIKit
 
 class MockViewController: UIViewController {
     
-    var presentCallCount: Int = 0
+    var presentCallCount = 0
     
     var mockViewControllerToPresent: UIViewController?
-    var mockAnimated: Bool = false
+    var mockAnimated = false
     
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         presentCallCount += 1

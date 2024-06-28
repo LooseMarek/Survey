@@ -8,9 +8,9 @@
 
 public class MockSurveyDelegate: SurveyDelegate {
     
-    public var positiveButtonPressedCallsCount: Int = 0
-    public var neutralButtonPressedCallsCount: Int = 0
-    public var negativeButtonPressedCallsCount: Int = 0
+    public var positiveButtonPressedCallsCount = 0
+    public var neutralButtonPressedCallsCount = 0
+    public var negativeButtonPressedCallsCount = 0
     
     public func positiveButtonPressed() {
         positiveButtonPressedCallsCount += 1

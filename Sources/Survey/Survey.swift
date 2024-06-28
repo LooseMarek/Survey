@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-@objc public protocol SurveyDelegate: class {
+@objc public protocol SurveyDelegate: AnyObject {
     
     /**
      Tells the delegate that User pressed the positive button.
@@ -111,16 +111,10 @@ public class Survey: SurveyProtocol {
      Shows alert **only** if frequency criteria had been met.
     */
     public func showAlert() throws {
-        guard let presenter = presenter else {
-            throw OpenLinkError.presenterNotSet
-        }
-        
-        if (!surveyHelper.canDisplayAlert(userDefaults: userDefaults, displayFrequencyInDays: displayFrequencyInDays)) {
-            return
-        }
+        guard let presenter else { throw OpenLinkError.presenterNotSet }
+        guard surveyHelper.canDisplayAlert(userDefaults: userDefaults, displayFrequencyInDays: displayFrequencyInDays) else { return }
         
         let alert: UIAlertController = createAlert()
-        
         presenter.present(alert, animated: true, completion: nil)
     }
     
@@ -128,12 +122,9 @@ public class Survey: SurveyProtocol {
      Shows alert **by ignoring** frequency criteria.
     */
     public func forceShowAlert() throws {
-        guard let presenter = presenter else {
-            throw OpenLinkError.presenterNotSet
-        }
+        guard let presenter else { throw OpenLinkError.presenterNotSet }
         
         let alert: UIAlertController = createAlert()
-        
         presenter.present(alert, animated: true, completion: nil)
     }
     
@@ -169,7 +160,7 @@ public class Survey: SurveyProtocol {
         userDefaults.set(dateNow, forKey: LogKey.buttonPressedTimestamp.rawValue)
         userDefaults.set(LogButtonType.positive.rawValue, forKey: LogKey.buttonType.rawValue)
                     
-        if let delegate = self.delegate, let positiveButtonPressed = delegate.positiveButtonPressed {
+        if let delegate, let positiveButtonPressed = delegate.positiveButtonPressed {
             positiveButtonPressed()
         }
         
@@ -182,7 +173,7 @@ public class Survey: SurveyProtocol {
         userDefaults.set(dateNow, forKey: LogKey.buttonPressedTimestamp.rawValue)
         userDefaults.set(LogButtonType.neutral.rawValue, forKey: LogKey.buttonType.rawValue)
         
-        if let delegate = self.delegate, let neutralButtonPressed = delegate.neutralButtonPressed {
+        if let delegate, let neutralButtonPressed = delegate.neutralButtonPressed {
             neutralButtonPressed()
         }
         
@@ -193,7 +184,7 @@ public class Survey: SurveyProtocol {
         self.userDefaults.set(dateNow, forKey: LogKey.buttonPressedTimestamp.rawValue)
         self.userDefaults.set(LogButtonType.negative.rawValue, forKey: LogKey.buttonType.rawValue)
         
-        if let delegate = self.delegate, let negativeButtonPressed = delegate.negativeButtonPressed {
+        if let delegate, let negativeButtonPressed = delegate.negativeButtonPressed {
             negativeButtonPressed()
         }
         
@@ -201,13 +192,8 @@ public class Survey: SurveyProtocol {
     }
     
     func openLink() throws {
-        guard let url = URL(string: link) else {
-            throw OpenLinkError.cantConvertLinkToUrl
-        }
-        
-        guard let presenter = presenter else {
-            throw OpenLinkError.presenterNotSet
-        }
+        guard let url = URL(string: link) else { throw OpenLinkError.cantConvertLinkToUrl }
+        guard let presenter else { throw OpenLinkError.presenterNotSet }
         
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true

@@ -9,9 +9,9 @@
 import UIKit
 
 class MockAlertController: UIAlertController {
-    var dismissCallCount: Int = 0
+    var dismissCallCount = 0
     
-    var mockAnimated: Bool = false
+    var mockAnimated = false
     var mockCompletion: (() -> Void)? = nil
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {

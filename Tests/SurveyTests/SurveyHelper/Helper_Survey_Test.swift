@@ -12,7 +12,7 @@ import XCTest
 
 class Helper_Survey_Test: XCTestCase {
     
-    let mockDateNow: Date = Date(timeIntervalSinceReferenceDate: 628869000) // 5 December 2020, 13:50GMT
+    let mockDateNow = Date(timeIntervalSinceReferenceDate: 628869000) // 5 December 2020, 13:50GMT
     let userDefaultSuiteName = "testSurveyUserDefaults"
     
     var fakeUserDefaults: UserDefaults!

@@ -10,14 +10,14 @@ import UIKit
 
 public class MockSurvey: SurveyProtocol {
     
-    public var setUserDefaultsCallsCount: Int = 0
-    public var setPresenterCallsCount: Int = 0
-    public var setLinkCallsCount: Int = 0
-    public var setAlertLabelsCallsCount: Int = 0
-    public var setDisplayFrequencyCallsCount: Int = 0
-    public var showAlertCallsCount: Int = 0
-    public var forceShowAlertCallsCount: Int = 0
-    public var resetButtonPressLogsCallsCount: Int = 0
+    public var setUserDefaultsCallsCount = 0
+    public var setPresenterCallsCount = 0
+    public var setLinkCallsCount = 0
+    public var setAlertLabelsCallsCount = 0
+    public var setDisplayFrequencyCallsCount = 0
+    public var showAlertCallsCount = 0
+    public var forceShowAlertCallsCount = 0
+    public var resetButtonPressLogsCallsCount = 0
     
     public var mockUserDefaults: UserDefaults?
     public var mockPresenter: UIViewController?

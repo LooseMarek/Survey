@@ -14,13 +14,13 @@ extension Helper_Survey_Test {
     
     func testDidEnoughTimePassFromLastDisplay_WhenFrequencyIsSetToZero_ShouldReturnTrue() {
         // Given
-        let calendar: Calendar = Calendar.current
+        let calendar = Calendar.current
         
-        let pastDate: Date = calendar.date(byAdding: .day, value: -1, to: mockDateNow)!
+        let pastDate = calendar.date(byAdding: .day, value: -1, to: mockDateNow)!
         let frequencyInDays: Int = 0
 
         // When
-        let result: Bool = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
+        let result = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
         
         // Then
         XCTAssertTrue(result)
@@ -28,11 +28,11 @@ extension Helper_Survey_Test {
     
     func testDidEnoughTimePassFromLastDisplay_WhenFrequencyIsSetButPastDateIsToday_ShouldReturnFalse() {
         // Given
-        let pastDate: Date = mockDateNow
-        let frequencyInDays: Int = 10
+        let pastDate = mockDateNow
+        let frequencyInDays = 10
 
         // When
-        let result: Bool = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
+        let result = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
         
         // Then
         XCTAssertFalse(result)
@@ -40,13 +40,13 @@ extension Helper_Survey_Test {
     
     func testDidEnoughTimePassFromLastDisplay_WhenFrequencyIsSetButEnoughTimeDidntPass_ShouldReturnFalse() {
         // Given
-        let calendar: Calendar = Calendar.current
+        let calendar = Calendar.current
         
-        let pastDate: Date = calendar.date(byAdding: .day, value: -9, to: mockDateNow)!
-        let frequencyInDays: Int = 10
+        let pastDate = calendar.date(byAdding: .day, value: -9, to: mockDateNow)!
+        let frequencyInDays = 10
 
         // When
-        let result: Bool = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
+        let result = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
         
         // Then
         XCTAssertFalse(result)
@@ -54,13 +54,13 @@ extension Helper_Survey_Test {
     
     func testDidEnoughTimePassFromLastDisplay_WhenFrequencyIsSetAndEnoughTimePassedToday_ShouldReturnTrue() {
         // Given
-        let calendar: Calendar = Calendar.current
+        let calendar = Calendar.current
         
-        let pastDate: Date = calendar.date(byAdding: .day, value: -10, to: mockDateNow)!
-        let frequencyInDays: Int = 10
+        let pastDate = calendar.date(byAdding: .day, value: -10, to: mockDateNow)!
+        let frequencyInDays = 10
 
         // When
-        let result: Bool = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
+        let result = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
         
         // Then
         XCTAssertTrue(result)
@@ -68,13 +68,13 @@ extension Helper_Survey_Test {
     
     func testDidEnoughTimePassFromLastDisplay_WhenFrequencyIsSetAndEnoughTimeDidPass_ShouldReturnTrue() {
         // Given
-        let calendar: Calendar = Calendar.current
+        let calendar = Calendar.current
         
-        let pastDate: Date = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
-        let frequencyInDays: Int = 10
+        let pastDate = calendar.date(byAdding: .day, value: -15, to: mockDateNow)!
+        let frequencyInDays = 10
 
         // When
-        let result: Bool = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
+        let result = surveyHelper.didEnoughTimePassFromLastDisplay(from: pastDate, to: mockDateNow, frequencyInDays: frequencyInDays)
         
         // Then
         XCTAssertTrue(result)

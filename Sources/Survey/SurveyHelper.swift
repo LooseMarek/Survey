@@ -29,11 +29,9 @@ class SurveyHelper: SurveyHelperProtocol {
             return true
         }
         
-        let userDontWantToSeeAlertAgain: Bool = buttonType == LogButtonType.negative
-        
-        if (userDontWantToSeeAlertAgain) {
-            return false
-        }
+        let userDontWantToSeeAlertAgain = buttonType == LogButtonType.negative
+
+        if userDontWantToSeeAlertAgain { return false }
         
         let frequencyInDays: Int = buttonType == LogButtonType.neutral ? displayFrequencyInDays.fromAskLater : displayFrequencyInDays.fromFilled
         
